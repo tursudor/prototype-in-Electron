@@ -1,2 +1,10 @@
 const information = document.getElementById('info')
 information.innerText = `This app is using Chrome (v${window.versions.chrome()}), Node.js (v${window.versions.node()}), and Electron (v${window.versions.electron()})`
+
+/** function to send messages between main.js and renderer.js going through preload.js **/
+const func = async () => {
+  const response = await window.versions.ping()
+  console.log(response) //prints out pong
+}
+
+func()
